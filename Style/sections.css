@@ -2,6 +2,27 @@
     img{
         height: 100%;
         object-fit: cover;
-        border-radius: 4px;
+        
+    }
+
+    .card{
+        position: relative; /*Adicionamos esse psoition para que o card seja posicionado com relação ao elemento pai dele*/
+        border-radius: 4px; /*Trouxemos o broder para cá pois adicionamos uma imagem por cima da imagem principal*/
+        overflow: hidden; /*O overflow hidden está ajudando a esconder o transborodo da imagem que está por cima da principal*/
+
+        &::before{ /*Estamos usando o & para substituir o card, pois se não tiver um elemento ali não podemos usar os ::*/
+            content: ""; 
+            position: absolute; 
+            inset: 0; /*usamos o inset para que a nova imagem cubra todo espaço especificado acima*/
+            top: 50%; /*usei o top para poder deixar a imagem na metade*/
+           background: linear-gradient( /*Para criar o gradiente na imagem*/
+            180deg, /*Posicionamento do degrade*/
+            transparent 0%, /*Primeira cor*/
+           #020617 100% /*Segunda cor*/
+
+           );
+
+        }
+
     }
 }
